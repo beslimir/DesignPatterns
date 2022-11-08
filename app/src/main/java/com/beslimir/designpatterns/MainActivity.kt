@@ -41,6 +41,29 @@ class MainActivity : ComponentActivity() {
                 //which can be seen in the address of that object.
                 //Normal classes can be instantiated many times. We can see that the two
                 //animal instances have different addresses.
+
+                /** Builder example **/
+                val hamburger1 = Hamburger.Builder()
+                    .addOnions(false)
+                    .build()
+                val hamburger2 = Hamburger.Builder()
+                    .build()
+                val hamburger3 = Hamburger.Builder()
+                    .addBeef(true)
+                    .addCheese(false)
+                    .addOnions(false)
+                    .build()
+
+                println("Hamburger1: Beef: ${hamburger1.beef}, " +
+                        "Onions: ${hamburger1.onions}, Cheese: ${hamburger1.cheese}")
+                println("Hamburger2: Beef: ${hamburger2.beef}, " +
+                        "Onions: ${hamburger2.onions}, Cheese: ${hamburger2.cheese}")
+                println("Hamburger3: Beef: ${hamburger3.beef}, " +
+                        "Onions: ${hamburger3.onions}, Cheese: ${hamburger3.cheese}")
+
+                //This example shows how to construct a Builder class.
+                //This way we handle building objects that contain a lot of parameters
+                //and when we want to make the object immutable once done creating it.
             }
         }
     }
