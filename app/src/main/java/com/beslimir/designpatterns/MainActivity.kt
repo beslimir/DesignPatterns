@@ -77,6 +77,14 @@ class MainActivity : ComponentActivity() {
                 //class is dependant on it.
                 //The class Car creates and initializes its own instance of Engine,
                 //which is not good because of tight coupling and hard testing.
+
+                /** Factory example **/
+                val myCurrency = CurrencyFactory.currency(Country.Croatia)
+                println("The currency: " + myCurrency.getCode() + " " + myCurrency.getSymbol())
+                val myCurrency2 = CurrencyFactory.currency(Country.Germany)
+                println("The currency: " + myCurrency2.getCode() + " " + myCurrency2.getSymbol())
+
+                //This is an example of a factory class, which takes care of object creation.
             }
         }
     }
