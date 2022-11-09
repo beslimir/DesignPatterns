@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             DesignPatternsTheme {
                 /** Singleton example **/
-
                 val person1 = Person
                 person1.walk()
 
@@ -64,6 +63,20 @@ class MainActivity : ComponentActivity() {
                 //This example shows how to construct a Builder class.
                 //This way we handle building objects that contain a lot of parameters
                 //and when we want to make the object immutable once done creating it.
+
+                /** DI example **/
+                val engine = Engine()
+                val carDI = CarDI(engine)
+                carDI.start()
+
+                val car = Car()
+                car.start()
+
+                //This is an example of dependency injection. carID variable is using
+                //constructor injection, where engine is the dependency, and the CarID
+                //class is dependant on it.
+                //The class Car creates and initializes its own instance of Engine,
+                //which is not good because of tight coupling and hard testing.
             }
         }
     }
